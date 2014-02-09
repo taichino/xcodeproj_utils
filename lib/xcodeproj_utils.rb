@@ -15,20 +15,25 @@ module XcodeprojUtils
       abort("#{target_name} is not found in #{proj_name}")
     end
 
-    files = target.source_build_phase.files_references
-    source_total = 0
-    for file in files
+    sources = []
+    for file in target.source_build_phase.files_references
       if file.last_known_file_type and file.last_known_file_type.include? "sourcecode"
-        source_total += %x{wc -l \"#{file.real_path}\"}.split.first.to_i
+        sources.push("'#{file.real_path}'")
       end
     end
+    file_params = sources.join(' ')
+    source_total = %x{wc -l #{file_params}}
+    source_total = source_total.lines[-1].split.first.to_i
 
-    header_total = 0
+    headers = []
     for file in proj.files
       if file.path.end_with? ".h"
-        header_total += %x{wc -l \"#{file.real_path}\"}.split.first.to_i
+        headers.push("'#{file.real_path}'")
       end
     end
+    file_params = headers.join(' ')
+    header_total = %x{wc -l #{file_params}}
+    header_total = header_total.lines[-1].split.first.to_i
 
     source_total + header_total
   end
