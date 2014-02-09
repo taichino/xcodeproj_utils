@@ -20,3 +20,6 @@ Or install it yourself as:
 
 	$ xcp_utils lines <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 
+## License
+
+Shenzhen is available under the MIT license. See the LICENSE file for more info.
