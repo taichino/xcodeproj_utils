@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'xcodeproj_utils'
+
+class CLI < Thor
+  desc "Count source lines of files", "xcp_utils lines PROJECT_NAME TARGET_NAME"
+  def lines(proj_name, target_name)
+    puts XcodeprojUtils.wc(proj_name, target_name)
+  end
+end
+
+CLI.start(ARGV)
