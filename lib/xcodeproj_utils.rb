@@ -8,6 +8,7 @@ module XcodeprojUtils
     for t in proj.targets
       next if t.name != target_name
       target = t
+      break
     end
 
     if not target
