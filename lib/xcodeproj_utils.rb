@@ -40,7 +40,6 @@ module XcodeprojUtils
       return header_total.lines[-1].split.first.to_i
     end
 
-    puts all, source_only, header_only
     source_total = header_total = 0
     source_total = count_source.call if all or source_only
     header_total = count_header.call if all or header_only

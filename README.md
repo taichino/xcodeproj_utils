@@ -19,6 +19,8 @@ Or install it yourself as:
 ## Usage
 
 	$ xcp_utils lines <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
+	$ xcp_utils lines --header_only <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
+	$ xcp_utils lines --source_only <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 
 ## License
 
