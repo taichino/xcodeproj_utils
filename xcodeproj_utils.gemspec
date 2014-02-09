@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["taichino@gmail.com"]
   spec.summary       = %q{Count source lines of files in xcode project.}
   spec.description   = %q{Count source lines of files in xcode project.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/taichino/xcodeproj_utils"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
