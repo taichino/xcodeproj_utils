@@ -1,6 +1,6 @@
 # XcodeprojUtils
 
-TODO: Write a gem description
+Count source lines of files in xcode project.
 
 ## Installation
 
@@ -18,12 +18,5 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+	$ xcp_utils lines <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 
-## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/xcodeproj_utils/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
