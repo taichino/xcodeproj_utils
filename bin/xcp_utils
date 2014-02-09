@@ -5,8 +5,16 @@ require 'xcodeproj_utils'
 
 class CLI < Thor
   desc "Count source lines of files", "xcp_utils lines PROJECT_NAME TARGET_NAME"
+  option :header_only, :type => :boolean, :default => false, :desc => 'Count only header files'
+  option :source_only, :type => :boolean, :default => false, :desc => 'Count only source files'
   def lines(proj_name, target_name)
-    puts XcodeprojUtils.wc(proj_name, target_name)
+    header_only = options[:header_only]
+    source_only = options[:source_only]
+    if header_only or source_only
+      puts XcodeprojUtils.wc(proj_name, target_name, header_only=header_only, source_only=source_only)
+    else
+      puts XcodeprojUtils.wc(proj_name, target_name)
+    end
   end
 end
 
