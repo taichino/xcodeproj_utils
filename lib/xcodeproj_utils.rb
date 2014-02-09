@@ -10,12 +10,13 @@ module XcodeprojUtils
       target = t
     end
 
-    exit if not target
+    if not target
+      abort("#{target_name} is not found in #{proj_name}")
+    end
 
     files = target.source_build_phase.files_references
     source_total = 0
     for file in files
-      # puts "path=#{file.path}, real_path=#{file.real_path}, file_type=#{file.last_known_file_type}"
       if file.last_known_file_type and file.last_known_file_type.include? "sourcecode"
         source_total += %x{wc -l \"#{file.real_path}\"}.split.first.to_i
       end
@@ -27,9 +28,6 @@ module XcodeprojUtils
         header_total += %x{wc -l \"#{file.real_path}\"}.split.first.to_i
       end
     end
-
-    puts source_total
-    puts header_total
 
     source_total + header_total
   end
