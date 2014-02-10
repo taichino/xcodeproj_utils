@@ -5,6 +5,7 @@ module XcodeprojUtils
   class Project
     def initialize(proj_name, target_name)
       @proj = Xcodeproj::Project::open(proj_name)
+      @target = @proj.targets.select {|target| target.name == target_name}
       for t in @proj.targets
         next if t.name != target_name
         @target = t
