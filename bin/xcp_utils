@@ -4,7 +4,7 @@ require 'thor'
 require 'xcodeproj_utils'
 
 class CLI < Thor
-  desc "Count source lines of files", "xcp_utils lines PROJECT_NAME TARGET_NAME"
+  desc "xcp_utils lines PROJECT_NAME TARGET_NAME", "Count source lines of files"
   option :header_only, :type => :boolean, :default => false, :desc => 'Count only header files'
   option :source_only, :type => :boolean, :default => false, :desc => 'Count only source files'
   def lines(proj_name, target_name)
@@ -18,7 +18,7 @@ class CLI < Thor
     end
   end
 
-  desc "Show files in specified target", "xcp_utils show PROJECT_NAME TARGET_NAME"
+  desc "xcp_utils show PROJECT_NAME TARGET_NAME", "Show files in specified target"
   option :kind, :type => :string, :default => 'source', :desc => 'source or resource'
   option :fullpath, :type => :boolean, :default => false, :desc => 'full paths will be shown if specified'
   def show(proj_name, target_name)
