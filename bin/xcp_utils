@@ -17,6 +17,16 @@ class CLI < Thor
       puts proj.wc()
     end
   end
+
+  desc "Show files in specified target", "xcp_utils show PROJECT_NAME TARGET_NAME"
+  option :kind, :type => :string, :default => 'source', :desc => 'source or resource'
+  option :fullpath, :type => :boolean, :default => false, :desc => 'full paths will be shown if specified'
+  def show(proj_name, target_name)
+    kind = options[:kind]
+    fullpath = options[:fullpath]
+    proj = XcodeprojUtils::Project.new(proj_name, target_name)
+    proj.show(kind)
+  end
 end
 
 CLI.start(ARGV)

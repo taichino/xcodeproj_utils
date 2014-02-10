@@ -44,5 +44,24 @@ module XcodeprojUtils
       header_total = count_header.call if all or header_only
       source_total + header_total
     end
+
+    def show(kind, fullpath=false)
+      if kind == 'resource'
+        files = @target.resources_build_phase.files_references
+      elsif kind == 'source'
+        files = @target.source_build_phase.files_references
+      end
+
+      if files
+        for file in files
+          if fullpath
+            puts file.real_path
+          else
+            puts file.path
+          end
+        end
+      end
+      return nil
+    end
   end
 end
