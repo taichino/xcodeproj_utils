@@ -10,10 +10,11 @@ class CLI < Thor
   def lines(proj_name, target_name)
     header_only = options[:header_only]
     source_only = options[:source_only]
+    proj = XcodeprojUtils::Project.new(proj_name, target_name)
     if header_only or source_only
-      puts XcodeprojUtils.wc(proj_name, target_name, header_only=header_only, source_only=source_only)
+      puts proj.wc(header_only=header_only, source_only=source_only)
     else
-      puts XcodeprojUtils.wc(proj_name, target_name)
+      puts proj.wc()
     end
   end
 end
