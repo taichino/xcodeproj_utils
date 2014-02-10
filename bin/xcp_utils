@@ -25,7 +25,7 @@ class CLI < Thor
     kind = options[:kind]
     fullpath = options[:fullpath]
     proj = XcodeprojUtils::Project.new(proj_name, target_name)
-    proj.show(kind)
+    proj.show(kind, fullpath)
   end
 end
 
