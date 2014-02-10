@@ -1,6 +1,9 @@
 # XcodeprojUtils
 
-Count source lines of files in xcode project.
+Util commands for xcode project. Following commands are supported for now.
+
+- Count source lines of files in xcode project
+- Show source / resource files in xcode project
 
 ## Installation
 

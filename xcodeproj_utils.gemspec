@@ -8,8 +8,13 @@ Gem::Specification.new do |spec|
   spec.version       = XcodeprojUtils::VERSION
   spec.authors       = ["Matsumoto Taichi"]
   spec.email         = ["taichino@gmail.com"]
-  spec.summary       = %q{Count source lines of files in xcode project.}
-  spec.description   = %q{Count source lines of files in xcode project.}
+  spec.summary       = %q{Util commands for xcode project.}
+  spec.description   = %q{
+Util commands for xcode project. Following commands are supported for now.
+
+- Count source lines of files in xcode project
+- Show source / resource files in xcode project
+}
   spec.homepage      = "https://github.com/taichino/xcodeproj_utils"
   spec.license       = "MIT"
 
