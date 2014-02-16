@@ -1,4 +1,5 @@
 # XcodeprojUtils
+[![Build Status](https://travis-ci.org/taichino/xcodeproj_utils.png?branch=master)](https://travis-ci.org/taichino/xcodeproj_utils)
 
 Util commands for xcode project. Following commands are supported for now.
 
