@@ -1,5 +1,5 @@
 language: objective-c
 rvm:
   - 2.0.0
-before_install: gem install bundler && source ~/.rvm/scripts/rvm
+before_install: gem install bundler && gem install rspec
 script: bundle exec rake spec
