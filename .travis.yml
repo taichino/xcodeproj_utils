@@ -1,4 +1,3 @@
 language: ruby
 rvm:
   - 2.0.0
-before_install: osascript -e 'set simpath to "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app/Contents/MacOS/iPhone Simulator" as POSIX file' -e 'tell application "Finder"' -e 'open simpath' -e 'end tell'
