@@ -11,7 +11,7 @@ module XcodeprojUtils
         @target = t
         break
       end
-      raise ArgumentError, "#{target_name} is not found in #{proj_name}" if not @target
+      raise ArgumentError, "#{target_name} is not found in #{proj_name}" if @target.empty?
     end
 
     def wc(header_only=false, source_only=false)
