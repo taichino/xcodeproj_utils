@@ -22,6 +22,22 @@ describe XcodeprojUtils do
       source = proj.wc(false, true)
       expect(total).to eq(header + source)
     end
+
+    it "lists all source files" do
+      require 'stringio'
+      
+      proj = XcodeprojUtils::Project.new(fixture_path('RSpecTest/RSpecTest.xcodeproj'), 'RSpecTest')
+      orig_stdout = $stdout
+      capture_stdout = StringIO.new
+      $stdout = capture_stdout
+      proj.show('source')
+      $stdout = orig_stdout
+
+      capture_stdout.rewind()
+      lines = capture_stdout.readlines()
+      expect(lines.length).to eq(3)
+
+    end
   end
   
 end
