@@ -23,7 +23,7 @@ describe XcodeprojUtils do
       expect(total).to eq(header + source)
     end
 
-    it "lists all source files" do
+    it "lists all source/resource files" do
       require 'stringio'
       
       proj = XcodeprojUtils::Project.new(fixture_path('RSpecTest/RSpecTest.xcodeproj'), 'RSpecTest')
@@ -39,11 +39,11 @@ describe XcodeprojUtils do
       capture_stdout = StringIO.new
       $stdout = capture_stdout
       proj.show('resource')
+      capture_stdout.close_write()
       $stdout = orig_stdout
       capture_stdout.rewind()
       lines = capture_stdout.readlines()
       expect(lines.length).to eq(1)
-
     end
   end
   

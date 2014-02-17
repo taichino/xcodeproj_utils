@@ -51,6 +51,8 @@ module XcodeprojUtils
 
       if files
         for file in files
+          next if file.class != Xcodeproj::Project::Object::PBXFileReference
+          
           if fullpath
             puts file.real_path
           else
