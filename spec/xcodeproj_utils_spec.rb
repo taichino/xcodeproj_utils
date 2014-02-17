@@ -38,7 +38,7 @@ describe XcodeprojUtils do
 
       capture_stdout = StringIO.new
       $stdout = capture_stdout
-      proj.show('resource')
+      proj.show('resource', true)
       capture_stdout.close_write()
       $stdout = orig_stdout
       capture_stdout.rewind()
