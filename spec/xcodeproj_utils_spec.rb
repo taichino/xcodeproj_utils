@@ -32,10 +32,17 @@ describe XcodeprojUtils do
       $stdout = capture_stdout
       proj.show('source')
       $stdout = orig_stdout
-
       capture_stdout.rewind()
       lines = capture_stdout.readlines()
       expect(lines.length).to eq(3)
+
+      capture_stdout = StringIO.new
+      $stdout = capture_stdout
+      proj.show('resource')
+      $stdout = orig_stdout
+      capture_stdout.rewind()
+      lines = capture_stdout.readlines()
+      expect(lines.length).to eq(1)
 
     end
   end
