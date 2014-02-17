@@ -2,6 +2,7 @@ language: objective-c
 env:
   matrix:
   - RVM_RUBY_VERSION=2.0 NOEXEC_DISABLE=1 CI=true
+  - service_name: travis-ci
   global:
     secure: bSjGR/anbf1WDf0cOIjwIXzod5q3elm5D6dB9x4tECB0CbGm9DUP196Nlx6TaBHXyZQHP4raGLYwA8tBCZwGZg06fanmb7V436RRGJZC/z+ZiWwtX2z0AdYcgsQBFJmaRdTMFaC2AncSvW2wkq9RCormbfuNxLtUjgqtXOc1PI0=
 before_install: source "$HOME/.rvm/scripts/rvm" && rvm use $RVM_RUBY_VERSION
