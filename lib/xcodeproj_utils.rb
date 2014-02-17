@@ -6,12 +6,8 @@ module XcodeprojUtils
     def initialize(proj_name, target_name)
       @proj = Xcodeproj::Project::open(proj_name)
       @target = @proj.targets.select {|target| target.name == target_name}
-      for t in @proj.targets
-        next if t.name != target_name
-        @target = t
-        break
-      end
       raise ArgumentError, "#{target_name} is not found in #{proj_name}" if @target.empty?
+      @target = @target.first
     end
 
     def wc(header_only=false, source_only=false)

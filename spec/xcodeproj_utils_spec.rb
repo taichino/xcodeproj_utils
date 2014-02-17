@@ -14,6 +14,14 @@ describe XcodeprojUtils do
       expect { XcodeprojUtils::Project.new(fixture_path('RSpecTest/RSpecTest.xcodeproj'),
                                            'Non-Existing Target') }.to raise_error(ArgumentError)
     end
+
+    it "return total lines of source code" do
+      proj = XcodeprojUtils::Project.new(fixture_path('RSpecTest/RSpecTest.xcodeproj'), 'RSpecTest')
+      total = proj.wc
+      header = proj.wc(true)
+      source = proj.wc(false, true)
+      expect(total).to eq(header + source)
+    end
   end
   
 end
