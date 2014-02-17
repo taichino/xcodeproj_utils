@@ -1,6 +1,7 @@
 # XcodeprojUtils
 [![Build Status](https://travis-ci.org/taichino/xcodeproj_utils.png?branch=master)](https://travis-ci.org/taichino/xcodeproj_utils)
 [![Coverage Status](https://coveralls.io/repos/taichino/xcodeproj_utils/badge.png?branch=master)](https://coveralls.io/r/taichino/xcodeproj_utils?branch=master)
+[![Gem Version](https://badge.fury.io/rb/xcodeproj_utils.png)](http://badge.fury.io/rb/xcodeproj_utils)
 
 Util commands for xcode project. Following commands are supported for now.
 
