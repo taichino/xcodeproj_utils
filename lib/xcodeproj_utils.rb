@@ -91,6 +91,10 @@ module XcodeprojUtils
         name = File.basename(file.display_name, '.*')
         name = name.split('@').first.strip
 
+        if name == 'Default' or name == 'Default-568h'
+          next
+        end
+
         if sources.scan(name).count == 0
           images << file
         end
