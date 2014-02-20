@@ -68,15 +68,28 @@ module XcodeprojUtils
       for file in @target.source_build_phase.files_references
         sources += File.read file.real_path
       end
+      for file in @proj.files
+        if file.path.end_with? ".h"
+          sources += File.read file.real_path
+        end
+      end
+      for file in @target.resources_build_phase.files_references
+        type = file.last_known_file_type
+        if type and type == 'file.xib'
+          sources += File.read file.real_path
+          next
+        end
+      end
 
       images = []
       for file in @target.resources_build_phase.files_references
-        if not file.last_known_file_type or not file.last_known_file_type.match /^image/
+        type = file.last_known_file_type
+        if not type or not type.match /^image/
           next
         end
 
         name = File.basename(file.display_name, '.*')
-        name = name.split('@').first
+        name = name.split('@').first.strip
 
         if sources.scan(name).count == 0
           images << file
