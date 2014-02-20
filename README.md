@@ -7,6 +7,7 @@ Util commands for xcode project. Following commands are supported for now.
 
 - Count source lines of files in xcode project
 - Show source / resource files in xcode project
+- Show possibly unused images in xcode project
 
 ## Installation
 
@@ -27,6 +28,7 @@ Or install it yourself as:
 	$ xcp_utils lines <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 	$ xcp_utils lines --header_only <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 	$ xcp_utils lines --source_only <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
+	$ xcp_utils unused_images <PATH_TO_XCODE_PROJECT> <TARGET_NAME>
 
 ## License
 

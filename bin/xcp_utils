@@ -27,6 +27,15 @@ class CLI < Thor
     proj = XcodeprojUtils::Project.new(proj_name, target_name)
     proj.show(kind, fullpath)
   end
+
+  desc "xcp_utils unused_images PROJECT_NAME TARGET_NAME", "Show unused images"
+  def unused_images(proj_name, target_name)
+    proj = XcodeprojUtils::Project.new(proj_name, target_name)
+    for image in proj.search_unused_images
+      puts image.display_name
+    end
+  end
+
 end
 
 CLI.start(ARGV)

@@ -62,5 +62,28 @@ module XcodeprojUtils
       end
       return nil
     end
+
+    def search_unused_images
+      sources = ""
+      for file in @target.source_build_phase.files_references
+        sources += File.read file.real_path
+      end
+
+      images = []
+      for file in @target.resources_build_phase.files_references
+        if not file.last_known_file_type or not file.last_known_file_type.match /^image/
+          next
+        end
+
+        name = File.basename(file.display_name, '.*')
+        name = name.split('@').first
+
+        if sources.scan(name).count == 0
+          images << file
+        end
+      end
+
+      images.sort {|x,y| x.display_name <=> y.display_name}
+    end
   end
 end
