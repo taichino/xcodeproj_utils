@@ -75,9 +75,9 @@ module XcodeprojUtils
       end
       for file in @target.resources_build_phase.files_references
         type = file.last_known_file_type
-        if type and type == 'file.xib'
+        next unless type
+        if type == 'file.xib' or type == 'text.plist.xml'
           sources += File.read file.real_path
-          next
         end
       end
 
