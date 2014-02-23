@@ -29,10 +29,22 @@ class CLI < Thor
   end
 
   desc "xcp_utils unused_images PROJECT_PATH TARGET_NAME", "Show unused images"
+  option :html, :type => :boolean, :default => false, :desc => 'output as html'
   def unused_images(proj_name, target_name)
     proj = XcodeprojUtils::Project.new(proj_name, target_name)
-    for image in proj.search_unused_images
-      puts image.display_name
+    output_html = options[:html]
+
+    if not output_html
+      for image in proj.search_unused_images
+        puts image.display_name
+      end
+    else
+      rows = ''
+      for image in proj.search_unused_images
+        rows += "<tr><td>#{image.path}</td><td><img src=\"#{image.real_path}\"></td></tr>\n"
+      end
+      html = "<html><body bgcolor=\"#eeeeee\"><table>#{rows}</table></body></html>"
+      puts html
     end
   end
 
